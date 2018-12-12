@@ -1,28 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
+import getStarValues from '../../util/getStarValues';
 import Star from './Star';
 import style from './index.css';
 
 export default class Book extends React.Component {
-  getStarValues = () => {
-    const { score } = this.props;
-    const starValues = [];
-    const full = parseInt(score / 2, 10);
-    for (let i = 0; i < full; i ++) {
-      starValues.push(2);
-    }
-    const half = score % 2 === 0 ? 0 : 1;
-    if (half) {
-      starValues.push(1);
-    }
-    const zero = 5 - full - half;
-    for (let i = 0; i < zero; i ++) {
-      starValues.push(0);
-    }
-    console.log(starValues)
-    return starValues;
-  }
-
   onClick = (e) => {
     e.preventDefault();
     const { handleClickBook } =  this.props;
@@ -50,7 +32,7 @@ export default class Book extends React.Component {
           <p className={style.book_info_price}>售价：<span className={style.book_info_price_value}>{price}</span> 元</p>
           <div className={style.book_info_score}>
             <div className={style.book_info_stars}>
-              { this.getStarValues().map((value, i) => <Star value={value} key={i} />) }
+              { getStarValues().map((value, i) => <Star value={value} key={i} />) }
             </div>
             <div className={style.book_info_score_value}>
               {score}
