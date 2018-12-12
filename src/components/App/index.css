@@ -1,0 +1,12 @@
+.app {
+  position: relative;
+}
+
+.wrapper {
+  width: 1080px;
+  margin: 0 auto;
+  position: relative;
+  height:  3850px;
+	z-index: 1;
+	background: #36363c;
+}
